@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package users;
+
+service UserService {
+  rpc GetFilteredUsers (GetFilteredUsersRequest) returns (GetFilteredUsersResponse);
+}
+
+message GetFilteredUsersRequest {}
+
+message GetFilteredUsersResponse {
+  repeated string users = 1;
+}

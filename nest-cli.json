@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "monorepo": true,
+  "root": "apps/producer",
+  "sourceRoot": "apps/producer/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "builder": "rspack",
+    "tsConfigPath": "apps/producer/tsconfig.app.json"
+  },
+  "projects": {
+    "producer": {
+      "type": "application",
+      "root": "apps/producer",
+      "entryFile": "main",
+      "sourceRoot": "apps/producer/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/producer/tsconfig.app.json"
+      }
+    },
+    "consumer": {
+      "type": "application",
+      "root": "apps/consumer",
+      "entryFile": "main",
+      "sourceRoot": "apps/consumer/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/consumer/tsconfig.app.json"
+      }
+    },
+    "users-proto": {
+      "type": "library",
+      "root": "libs/users-proto",
+      "entryFile": "index",
+      "sourceRoot": "libs/users-proto/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/users-proto/tsconfig.lib.json"
+      }
+    }
+  }
+}

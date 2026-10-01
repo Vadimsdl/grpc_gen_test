@@ -1,0 +1,17 @@
+services:
+  producer:
+    build:
+      context: .
+      dockerfile: apps/producer/Dockerfile
+    ports:
+      - "50051:50051"
+
+  consumer:
+    build:
+      context: .
+      dockerfile: apps/consumer/Dockerfile
+    depends_on:
+      - producer
+    environment:
+      PRODUCER_URL: producer:50051
+    restart: "no"
